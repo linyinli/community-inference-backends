@@ -4,4 +4,4 @@ version_configs:
   v2.6.4:
     image_name: mineru:v2.6.4
     custom_framework: cuda
-default_version: v1-custom
+default_version: v2.6.4
