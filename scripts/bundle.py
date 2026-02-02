@@ -12,7 +12,7 @@ except ImportError:
     import yaml
 
 DIST_DIR = "dist"
-OUTPUT_FILE = os.path.join(DIST_DIR, "community-backends.yaml")
+OUTPUT_FILE = os.path.join(DIST_DIR, "community-inference-backends.yaml")
 
 # Max logo size in bytes (100KB)
 MAX_LOGO_SIZE = 100 * 1024 
