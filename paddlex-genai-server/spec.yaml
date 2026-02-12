@@ -1,0 +1,74 @@
+backend_name: PaddleX-GenAI-Server
+description: |
+  PaddleX-GenAI-Server is a production-ready serving framework within the PaddleX ecosystem, designed to package PaddleOCR-VL as standardized, high-performance API services.
+  By integrating advanced inference backends such as vLLM and SGLang, it enables stable, scalable deployment of generative document parsing capabilities in production environments.
+
+  For detailed usage instructions, please refer to:
+  https://www.paddleocr.ai/latest/version3.x/pipeline_usage/PaddleOCR-VL.html
+version_configs:
+  latest-nvidia-gpu:
+    image_name: >-
+      ccr-2vdh3abv-pub.cnc.bj.baidubce.com/paddlepaddle/paddleocr-genai-vllm-server:latest-nvidia-gpu
+    run_command: ''
+    entrypoint: ''
+    custom_framework: cuda
+    env: {}
+  latest-nvidia-gpu-sm120:
+    image_name: >-
+      ccr-2vdh3abv-pub.cnc.bj.baidubce.com/paddlepaddle/paddleocr-genai-vllm-server:latest-nvidia-gpu-sm120
+    run_command: ''
+    entrypoint: ''
+    custom_framework: cuda
+    env: {}
+  latest-huawei-npu:
+    image_name: >-
+      ccr-2vdh3abv-pub.cnc.bj.baidubce.com/paddlepaddle/paddleocr-genai-vllm-server:latest-huawei-npu
+    run_command: ''
+    entrypoint: ''
+    custom_framework: cann
+    env: {}
+  latest-hygon-dcu:
+    image_name: >-
+      ccr-2vdh3abv-pub.cnc.bj.baidubce.com/paddlepaddle/paddleocr-genai-vllm-server:latest-hygon-dcu
+    run_command: ''
+    entrypoint: ''
+    custom_framework: dtk
+    env: {}
+  latest-iluvatar-gpu:
+    image_name: >-
+      ccr-2vdh3abv-pub.cnc.bj.baidubce.com/paddlepaddle/paddleocr-genai-fastdeploy-server:latest-iluvatar-gpu
+    run_command: >-
+      paddleocr genai_server --model_name {{model_name}} --model_dir
+      {{model_path}} --host 0.0.0.0 --port {{port}} --backend fastdeploy
+    entrypoint: ''
+    custom_framework: corex
+    env: {}
+  latest-metax-gpu:
+    image_name: >-
+      ccr-2vdh3abv-pub.cnc.bj.baidubce.com/paddlepaddle/paddleocr-genai-fastdeploy-server:latest-metax-gpu
+    run_command: >-
+      paddleocr genai_server --model_name {{model_name}} --model_dir
+      {{model_path}} --host 0.0.0.0 --port {{port}} --backend fastdeploy
+    entrypoint: ''
+    custom_framework: maca
+    env: {}
+default_run_command: >-
+  paddleocr genai_server --model_name {{MODEL_NAME}} --model_dir {{model_path}}
+  --host 0.0.0.0 --port {{port}} --backend vllm
+health_check_path: /v1/models
+default_env:
+  PADDLE_PDX_DISABLE_MODEL_SOURCE_CHECK: 'True'
+  MODEL_NAME: PaddleOCR-VL-1.5-0.9B
+framework_index_map:
+  cuda:
+    - latest-nvidia-gpu
+    - latest-nvidia-gpu-sm120
+  cann:
+    - latest-huawei-npu
+  dtk:
+    - latest-hygon-dcu
+  corex:
+    - latest-iluvatar-gpu
+  maca:
+    - latest-metax-gpu
+

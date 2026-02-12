@@ -1,4 +1,15 @@
 backend_name: MinerU
+description: |
+  MinerU (https://github.com/opendatalab/mineru) is a document parsing engine that converts complex PDFs into structured, machine-readable formats such as Markdown and JSON.
+  It was originally developed during the pre-training of InternLM and is particularly strong at handling formulas, symbols, and structured content commonly found in scientific literature.
+
+  This inference backend image is built on top of the official MinerU Dockerfile:
+  https://github.com/opendatalab/MinerU/blob/master/docker/global/Dockerfile
+
+  The backend image includes a built-in model, so the model selected on the Deployments page may be ignored.
+
+  The model name must be set to: mineru
+health_check_path: /v1/models
 default_run_command: mineru-vllm-server --port {{port}} --served-model-name {{model_name}}
 version_configs:
   v2.7.0:
