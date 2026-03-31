@@ -92,7 +92,7 @@ version_configs:
   7.3.0-310p:
     image_name: gpustackcommunity/mis-tei:7.3.0-300I-Duo-aarch64
     custom_framework: cann
-default_version: v7.3.0-a2
+default_version: 7.3.0-a2
 ```
 
 ---
