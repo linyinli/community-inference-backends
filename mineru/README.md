@@ -1,6 +1,6 @@
 # MinerU Custom Backend
 
-MinerU provides an official [Dockerfile](https://github.com/opendatalab/MinerU/blob/master/docker/china). We can use this to build an image and integrate it into GPUStack as a custom backend.
+MinerU offers various official [Dockerfiles](https://github.com/opendatalab/MinerU/blob/master/docker/china) tailored for different hardware setups. We can use the relevant one to build an image and seamlessly integrate it into GPUStack as a custom backend.
 
 ## 1. Prepare MinerU Image
 
@@ -10,7 +10,7 @@ We have pre-built a ready-to-use image (v2.7.0). You can pull it directly:
 docker pull gpustackcommunity/mineru:v2.7.0
 ```
 
-Alternatively, you can build it yourself using the [official Dockerfile](https://github.com/opendatalab/MinerU/blob/master/docker/china).
+Alternatively, you can build it yourself using the official [Dockerfiles](https://github.com/opendatalab/MinerU/blob/master/docker/china).
 
 > **Note:** The official Dockerfile uses an older version of vLLM. If you are running on new devices like **RTX 5090**, please modify the Dockerfile to upgrade vLLM and rebuild the image.
 
